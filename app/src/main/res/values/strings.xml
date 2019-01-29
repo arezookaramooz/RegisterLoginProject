@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">RegisterLogin2</string>
+    <string name="not_registered_error">you have not registered yet</string>
+    <string name="wrong_password_error">password is incorrect</string>
+    <string name="wrong_phone_number_format_error">phone number is not in right format</string>
+    <string name="wrong_email_format_error">email format is not in right format</string>
+    <string name="wrong_password_format_error">Password must contain minimum 8 characters, at least 1 Alphabet, 1 Number and 1 Special Character from [@#$%^+=!]</string>
+    <string name="wrong_password_confirmation">password confirmation is not correct</string>
+</resources>
