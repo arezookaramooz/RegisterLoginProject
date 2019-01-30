@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.activity_login);
 
         initialize();
-        presenter = new LoginPresenter(this, RegisterModel.getInstance(this));
+        presenter = new LoginPresenter(this, new  LoginModel());
     }
 
     @Override

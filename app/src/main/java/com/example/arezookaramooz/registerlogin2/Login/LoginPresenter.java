@@ -9,11 +9,11 @@ import com.example.arezookaramooz.registerlogin2.Register.RegisterModel;
 public class LoginPresenter {
 
     private LoginView loginView;
-    private RegisterModel registerModel;
+    private LoginModel loginModel;
 
-    LoginPresenter(LoginView loginView, RegisterModel registerModel) {
+    LoginPresenter(LoginView loginView, LoginModel loginModel) {
         this.loginView = loginView;
-        this.registerModel = registerModel;
+        this.loginModel = loginModel;
     }
 
     public void onLoginButtonClicked(String phoneNumber, String password) {
@@ -21,9 +21,9 @@ public class LoginPresenter {
     }
 
     private void validate(String phoneNumber, String password) {
-        if (registerModel.getPassword(phoneNumber) == null){
+        if (loginModel.getPassword(phoneNumber) == null){
             loginView.setNotRegisteredError();
-        }else if (!registerModel.getPassword(phoneNumber).equals(password)){
+        }else if (!loginModel.getPassword(phoneNumber).equals(password)){
             loginView.setWrongPasswordError();
         }else {
             loginView.navigateToProfileActivity();

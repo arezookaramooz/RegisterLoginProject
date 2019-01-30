@@ -28,7 +28,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         setContentView(R.layout.activity_register);
 
         initialize();
-        presenter = new RegisterPresenter(this, RegisterModel.getInstance(this));
+        presenter = new RegisterPresenter(this, new RegisterModel());
     }
 
     private void initialize() {

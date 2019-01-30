@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.widget.Toast;
 
+import com.example.arezookaramooz.registerlogin2.DataBase.User;
 import com.example.arezookaramooz.registerlogin2.Login.LoginView;
 
 import java.util.regex.Matcher;
@@ -80,7 +81,11 @@ public class RegisterPresenter {
                 registerView.setWrongPasswordConfirmationError();
 
             } else {
-                registerModel.insertRowToUsers(phoneNumber, password, email);
+                User user = new User();
+                user.setPhoneNumber(phoneNumber);
+                user.setPassword(password);
+                user.setEmail(email);
+                registerModel.addUser(user);
                 registerView.navigateToProfileActivity();
 
             }
