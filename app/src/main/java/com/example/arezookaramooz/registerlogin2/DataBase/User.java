@@ -1,11 +1,25 @@
 package com.example.arezookaramooz.registerlogin2.DataBase;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import io.realm.Realm;
 import io.realm.RealmObject;
 
 public class User extends RealmObject {
 
-    String phoneNumber, password, email;
+    @SerializedName("phoneNumber")
+    @Expose
+    String phoneNumber;
+    @SerializedName("password")
+    @Expose
+    String password;
+    @SerializedName("email")
+    @Expose
+    String email;
+    @SerializedName("province")
+    @Expose
+    String province;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -29,5 +43,13 @@ public class User extends RealmObject {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
     }
 }

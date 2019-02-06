@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.arezookaramooz.registerlogin2.Profile.ProfileActivity;
+import com.example.arezookaramooz.registerlogin2.Map.MapActivity;
 import com.example.arezookaramooz.registerlogin2.R;
 import com.example.arezookaramooz.registerlogin2.Register.RegisterActivity;
-import com.example.arezookaramooz.registerlogin2.Register.RegisterModel;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
@@ -48,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void navigateToProfileActivity() {
-        startActivity(new Intent(this, ProfileActivity.class));
+        startActivity(new Intent(this, MapActivity.class));
     }
 
     private void initialize() {

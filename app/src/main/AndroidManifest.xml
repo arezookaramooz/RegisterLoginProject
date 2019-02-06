@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.arezookaramooz.registerlogin2">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
     <application
         android:name=".DataBase.MyApplication"
         android:allowBackup="true"
@@ -18,7 +22,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Register.RegisterActivity"></activity>
-        <activity android:name=".Profile.ProfileActivity"></activity>
+        <activity android:name=".Map.MapActivity"></activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCierpR9GX4I5Zw_eYmS2VENjblnwL8Fsg"/>
+
+        <service
+            android:name=".FetchAddressIntentService"
+            android:exported="false"/>
+
     </application>
 
 </manifest>

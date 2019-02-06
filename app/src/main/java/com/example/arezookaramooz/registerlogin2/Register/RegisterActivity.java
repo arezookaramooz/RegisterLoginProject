@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.arezookaramooz.registerlogin2.Login.LoginPresenter;
-import com.example.arezookaramooz.registerlogin2.Profile.ProfileActivity;
+import com.example.arezookaramooz.registerlogin2.Map.MapActivity;
 import com.example.arezookaramooz.registerlogin2.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
@@ -20,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
     EditText confirmPasswordBox;
     EditText emailBox;
     Button registerButton;
+    Spinner spinner;
     private RegisterPresenter presenter;
 
     @Override
@@ -33,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     private void initialize() {
         findViews();
+        addItemsToSpinner();
         listeners();
     }
 
@@ -42,17 +48,33 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
         confirmPasswordBox = findViewById(R.id.confirm_Password_box);
         emailBox = findViewById(R.id.email_box);
         registerButton = findViewById(R.id.register_button);
+        spinner = findViewById(R.id.spinner);
+    }
+
+    private void addItemsToSpinner(){
+        List<String> categories = new ArrayList<>();
+        categories.add("Tehran");
+        categories.add("Kerman");
+        categories.add("Fars");
+        categories.add("Isfahan");
+        categories.add("Yazd");
+        categories.add("Khorasan");
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
+        spinner.setPrompt("prompt");
     }
 
     private void listeners() {
-        RegisterButtonListener();
+        registerButtonListener();
     }
 
-    private void RegisterButtonListener() {
+    private void registerButtonListener() {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                presenter.onRegisterButtonClicked(getPhoneNumber(), getPassword(), getConfirmPassword(), getEmail());
+                presenter.onRegisterButtonClicked(getPhoneNumber(), getPassword(), getConfirmPassword(), getEmail(), getSpinnertItem());
             }
         });
     }
@@ -71,6 +93,10 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     private String getEmail(){
         return emailBox.getText().toString();
+    }
+
+    private String getSpinnertItem(){
+        return spinner.getSelectedItem().toString();
     }
 
     @Override
@@ -100,6 +126,6 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView{
 
     @Override
     public void navigateToProfileActivity(){
-        startActivity(new Intent(this, ProfileActivity.class));
+        startActivity(new Intent(this, MapActivity.class));
     }
 }
