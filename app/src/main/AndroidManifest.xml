@@ -24,13 +24,11 @@
         <activity android:name=".Register.RegisterActivity"></activity>
         <activity android:name=".Map.MapActivity"></activity>
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCierpR9GX4I5Zw_eYmS2VENjblnwL8Fsg"/>
 
-        <service
-            android:name=".FetchAddressIntentService"
-            android:exported="false"/>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCierpR9GX4I5Zw_eYmS2VENjblnwL8Fsg"/>
 
     </application>
 

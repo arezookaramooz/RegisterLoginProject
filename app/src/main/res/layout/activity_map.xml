@@ -41,4 +41,14 @@
         android:visibility="gone"
         android:textColor="#000000"/>
 
+    <TextView
+        android:id="@+id/text_view_distance_duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryTransparent"
+        android:layout_below="@+id/text_view_user_address"
+        android:padding="@dimen/standard_margin1"
+        android:visibility="gone"
+        android:textColor="#000000"/>
+
 </RelativeLayout>
